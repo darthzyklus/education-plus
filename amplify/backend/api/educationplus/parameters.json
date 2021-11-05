@@ -1,5 +1,11 @@
 {
   "AppSyncApiName": "educationplus",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "autheducationplus54aee3dd",
+      "Outputs.UserPoolId"
+    ]
+  }
 }

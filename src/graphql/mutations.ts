@@ -2,19 +2,20 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createBlog = /* GraphQL */ `
-  mutation CreateBlog(
-    $input: CreateBlogInput!
-    $condition: ModelBlogConditionInput
+export const createCourse = /* GraphQL */ `
+  mutation CreateCourse(
+    $input: CreateCourseInput!
+    $condition: ModelCourseConditionInput
   ) {
-    createBlog(input: $input, condition: $condition) {
+    createCourse(input: $input, condition: $condition) {
       id
       name
-      posts {
+      lessons {
         items {
           id
           title
-          blogID
+          videoURL
+          courseID
           createdAt
           updatedAt
         }
@@ -25,19 +26,20 @@ export const createBlog = /* GraphQL */ `
     }
   }
 `;
-export const updateBlog = /* GraphQL */ `
-  mutation UpdateBlog(
-    $input: UpdateBlogInput!
-    $condition: ModelBlogConditionInput
+export const updateCourse = /* GraphQL */ `
+  mutation UpdateCourse(
+    $input: UpdateCourseInput!
+    $condition: ModelCourseConditionInput
   ) {
-    updateBlog(input: $input, condition: $condition) {
+    updateCourse(input: $input, condition: $condition) {
       id
       name
-      posts {
+      lessons {
         items {
           id
           title
-          blogID
+          videoURL
+          courseID
           createdAt
           updatedAt
         }
@@ -48,19 +50,20 @@ export const updateBlog = /* GraphQL */ `
     }
   }
 `;
-export const deleteBlog = /* GraphQL */ `
-  mutation DeleteBlog(
-    $input: DeleteBlogInput!
-    $condition: ModelBlogConditionInput
+export const deleteCourse = /* GraphQL */ `
+  mutation DeleteCourse(
+    $input: DeleteCourseInput!
+    $condition: ModelCourseConditionInput
   ) {
-    deleteBlog(input: $input, condition: $condition) {
+    deleteCourse(input: $input, condition: $condition) {
       id
       name
-      posts {
+      lessons {
         items {
           id
           title
-          blogID
+          videoURL
+          courseID
           createdAt
           updatedAt
         }
@@ -71,19 +74,20 @@ export const deleteBlog = /* GraphQL */ `
     }
   }
 `;
-export const createPost = /* GraphQL */ `
-  mutation CreatePost(
-    $input: CreatePostInput!
-    $condition: ModelPostConditionInput
+export const createLesson = /* GraphQL */ `
+  mutation CreateLesson(
+    $input: CreateLessonInput!
+    $condition: ModelLessonConditionInput
   ) {
-    createPost(input: $input, condition: $condition) {
+    createLesson(input: $input, condition: $condition) {
       id
       title
-      blogID
-      blog {
+      videoURL
+      courseID
+      course {
         id
         name
-        posts {
+        lessons {
           nextToken
         }
         createdAt
@@ -92,7 +96,7 @@ export const createPost = /* GraphQL */ `
       comments {
         items {
           id
-          postID
+          lessonID
           content
           createdAt
           updatedAt
@@ -104,19 +108,20 @@ export const createPost = /* GraphQL */ `
     }
   }
 `;
-export const updatePost = /* GraphQL */ `
-  mutation UpdatePost(
-    $input: UpdatePostInput!
-    $condition: ModelPostConditionInput
+export const updateLesson = /* GraphQL */ `
+  mutation UpdateLesson(
+    $input: UpdateLessonInput!
+    $condition: ModelLessonConditionInput
   ) {
-    updatePost(input: $input, condition: $condition) {
+    updateLesson(input: $input, condition: $condition) {
       id
       title
-      blogID
-      blog {
+      videoURL
+      courseID
+      course {
         id
         name
-        posts {
+        lessons {
           nextToken
         }
         createdAt
@@ -125,7 +130,7 @@ export const updatePost = /* GraphQL */ `
       comments {
         items {
           id
-          postID
+          lessonID
           content
           createdAt
           updatedAt
@@ -137,19 +142,20 @@ export const updatePost = /* GraphQL */ `
     }
   }
 `;
-export const deletePost = /* GraphQL */ `
-  mutation DeletePost(
-    $input: DeletePostInput!
-    $condition: ModelPostConditionInput
+export const deleteLesson = /* GraphQL */ `
+  mutation DeleteLesson(
+    $input: DeleteLessonInput!
+    $condition: ModelLessonConditionInput
   ) {
-    deletePost(input: $input, condition: $condition) {
+    deleteLesson(input: $input, condition: $condition) {
       id
       title
-      blogID
-      blog {
+      videoURL
+      courseID
+      course {
         id
         name
-        posts {
+        lessons {
           nextToken
         }
         createdAt
@@ -158,7 +164,7 @@ export const deletePost = /* GraphQL */ `
       comments {
         items {
           id
-          postID
+          lessonID
           content
           createdAt
           updatedAt
@@ -177,12 +183,13 @@ export const createComment = /* GraphQL */ `
   ) {
     createComment(input: $input, condition: $condition) {
       id
-      postID
-      post {
+      lessonID
+      lesson {
         id
         title
-        blogID
-        blog {
+        videoURL
+        courseID
+        course {
           id
           name
           createdAt
@@ -207,12 +214,13 @@ export const updateComment = /* GraphQL */ `
   ) {
     updateComment(input: $input, condition: $condition) {
       id
-      postID
-      post {
+      lessonID
+      lesson {
         id
         title
-        blogID
-        blog {
+        videoURL
+        courseID
+        course {
           id
           name
           createdAt
@@ -237,12 +245,13 @@ export const deleteComment = /* GraphQL */ `
   ) {
     deleteComment(input: $input, condition: $condition) {
       id
-      postID
-      post {
+      lessonID
+      lesson {
         id
         title
-        blogID
-        blog {
+        videoURL
+        courseID
+        course {
           id
           name
           createdAt

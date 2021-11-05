@@ -3,7 +3,7 @@ import { Amplify, API, Auth, withSSRContext } from "aws-amplify";
 import type { NextPage, GetServerSideProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { listBlogs } from "../src/graphql/queries";
+import { listCourses } from "../src/graphql/queries";
 import styles from "../styles/Home.module.css";
 import awsExports from "../src/aws-exports";
 
@@ -11,26 +11,24 @@ Amplify.configure({ ...awsExports, ssr: true });
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const SSR = withSSRContext({ req });
-  const response = await SSR.API.graphql({ query: listBlogs });
+  const response = await SSR.API.graphql({ query: listCourses });
 
   return {
     props: {
-      blogs: response.data.listBlogs.items,
+      courses: response.data.listCourses.items,
     },
   };
 };
 
 type HomeProps = {
-  blogs: Array<{
+  courses: Array<{
     id: string;
     name: string;
   }>;
 };
 
-const Home: NextPage<HomeProps> = ({ blogs = [] }) => {
-  const showBlogs = blogs.length > 0;
-
-  console.log("BLOGS", blogs);
+const Home: NextPage<HomeProps> = ({ courses = [] }) => {
+  const showCourses = courses.length > 0;
 
   return (
     <div className={styles.container}>
@@ -43,29 +41,29 @@ const Home: NextPage<HomeProps> = ({ blogs = [] }) => {
       <main className={styles.main}>
         <h1 className={styles.title}>Amplify + Next.js (POC)</h1>
 
-        {!showBlogs && (
+        {!showCourses && (
           <p className={styles.description}>
-            There are not blogs at this moment
+            There are not courses at this moment
           </p>
         )}
 
-        {showBlogs && (
+        {showCourses && (
           <>
-            <p className={styles.description}>Blogs</p>
+            <p className={styles.description}>Courses</p>
 
             <div className={styles.grid}>
-              {blogs.map((blog) => (
-                <a href={`/blog/${blog.id}`} key={blog.id}>
+              {courses.map((course) => (
+                <a href={`/course/${course.id}`} key={course.id}>
                   <div className={styles.card}>
                     <Image
                       className={styles.cardImage}
-                      src={`https://via.placeholder.com/250/000000/FFFFFF/?text=${blog.name}`}
-                      alt={blog.name}
+                      src={`https://via.placeholder.com/250/000000/FFFFFF/?text=${course.name}`}
+                      alt={course.name}
                       width={250}
                       height={250}
                     />
                     <div>
-                      <h2>{blog.name}</h2>
+                      <h2>{course.name}</h2>
                     </div>
                   </div>
                 </a>

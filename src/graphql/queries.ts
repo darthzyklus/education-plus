@@ -2,16 +2,17 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getBlog = /* GraphQL */ `
-  query GetBlog($id: ID!) {
-    getBlog(id: $id) {
+export const getCourse = /* GraphQL */ `
+  query GetCourse($id: ID!) {
+    getCourse(id: $id) {
       id
       name
-      posts {
+      lessons {
         items {
           id
           title
-          blogID
+          videoURL
+          courseID
           createdAt
           updatedAt
         }
@@ -22,17 +23,17 @@ export const getBlog = /* GraphQL */ `
     }
   }
 `;
-export const listBlogs = /* GraphQL */ `
-  query ListBlogs(
-    $filter: ModelBlogFilterInput
+export const listCourses = /* GraphQL */ `
+  query ListCourses(
+    $filter: ModelCourseFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listBlogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listCourses(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         name
-        posts {
+        lessons {
           nextToken
         }
         createdAt
@@ -42,16 +43,17 @@ export const listBlogs = /* GraphQL */ `
     }
   }
 `;
-export const getPost = /* GraphQL */ `
-  query GetPost($id: ID!) {
-    getPost(id: $id) {
+export const getLesson = /* GraphQL */ `
+  query GetLesson($id: ID!) {
+    getLesson(id: $id) {
       id
       title
-      blogID
-      blog {
+      videoURL
+      courseID
+      course {
         id
         name
-        posts {
+        lessons {
           nextToken
         }
         createdAt
@@ -60,7 +62,7 @@ export const getPost = /* GraphQL */ `
       comments {
         items {
           id
-          postID
+          lessonID
           content
           createdAt
           updatedAt
@@ -72,18 +74,19 @@ export const getPost = /* GraphQL */ `
     }
   }
 `;
-export const listPosts = /* GraphQL */ `
-  query ListPosts(
-    $filter: ModelPostFilterInput
+export const listLessons = /* GraphQL */ `
+  query ListLessons(
+    $filter: ModelLessonFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listLessons(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         title
-        blogID
-        blog {
+        videoURL
+        courseID
+        course {
           id
           name
           createdAt
@@ -103,12 +106,13 @@ export const getComment = /* GraphQL */ `
   query GetComment($id: ID!) {
     getComment(id: $id) {
       id
-      postID
-      post {
+      lessonID
+      lesson {
         id
         title
-        blogID
-        blog {
+        videoURL
+        courseID
+        course {
           id
           name
           createdAt
@@ -135,11 +139,12 @@ export const listComments = /* GraphQL */ `
     listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        postID
-        post {
+        lessonID
+        lesson {
           id
           title
-          blogID
+          videoURL
+          courseID
           createdAt
           updatedAt
         }

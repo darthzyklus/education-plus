@@ -1,20 +1,21 @@
-type Blog @model {
+type Course @model {
   id: ID!
   name: String!
-  posts: [Post] @connection(keyName: "byBlog", fields: ["id"])
+  lessons: [Lesson] @connection(keyName: "byCourse", fields: ["id"])
 }
 
-type Post @model @key(name: "byBlog", fields: ["blogID"]) {
+type Lesson @model @key(name: "byCourse", fields: ["courseID"]) {
   id: ID!
   title: String!
-  blogID: ID!
-  blog: Blog @connection(fields: ["blogID"])
-  comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
+  videoURL: String!
+  courseID: ID!
+  course: Course @connection(fields: ["courseID"])
+  comments: [Comment] @connection(keyName: "byLesson", fields: ["id"])
 }
 
-type Comment @model @key(name: "byPost", fields: ["postID", "content"]) {
+type Comment @model @key(name: "byLesson", fields: ["lessonID", "content"]) {
   id: ID!
-  postID: ID!
-  post: Post @connection(fields: ["postID"])
+  lessonID: ID!
+  lesson: Lesson @connection(fields: ["lessonID"])
   content: String!
 }

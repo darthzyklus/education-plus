@@ -2,16 +2,16 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreateBlogInput = {
+export type CreateCourseInput = {
   id?: string | null,
   name: string,
 };
 
-export type ModelBlogConditionInput = {
+export type ModelCourseConditionInput = {
   name?: ModelStringInput | null,
-  and?: Array< ModelBlogConditionInput | null > | null,
-  or?: Array< ModelBlogConditionInput | null > | null,
-  not?: ModelBlogConditionInput | null,
+  and?: Array< ModelCourseConditionInput | null > | null,
+  or?: Array< ModelCourseConditionInput | null > | null,
+  not?: ModelCourseConditionInput | null,
 };
 
 export type ModelStringInput = {
@@ -54,27 +54,28 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
-export type Blog = {
-  __typename: "Blog",
+export type Course = {
+  __typename: "Course",
   id: string,
   name: string,
-  posts?: ModelPostConnection | null,
+  lessons?: ModelLessonConnection | null,
   createdAt: string,
   updatedAt: string,
 };
 
-export type ModelPostConnection = {
-  __typename: "ModelPostConnection",
-  items?:  Array<Post | null > | null,
+export type ModelLessonConnection = {
+  __typename: "ModelLessonConnection",
+  items?:  Array<Lesson | null > | null,
   nextToken?: string | null,
 };
 
-export type Post = {
-  __typename: "Post",
+export type Lesson = {
+  __typename: "Lesson",
   id: string,
   title: string,
-  blogID: string,
-  blog?: Blog | null,
+  videoURL: string,
+  courseID: string,
+  course?: Course | null,
   comments?: ModelCommentConnection | null,
   createdAt: string,
   updatedAt: string,
@@ -89,34 +90,36 @@ export type ModelCommentConnection = {
 export type Comment = {
   __typename: "Comment",
   id: string,
-  postID: string,
-  post?: Post | null,
+  lessonID: string,
+  lesson?: Lesson | null,
   content: string,
   createdAt: string,
   updatedAt: string,
 };
 
-export type UpdateBlogInput = {
+export type UpdateCourseInput = {
   id: string,
   name?: string | null,
 };
 
-export type DeleteBlogInput = {
+export type DeleteCourseInput = {
   id: string,
 };
 
-export type CreatePostInput = {
+export type CreateLessonInput = {
   id?: string | null,
   title: string,
-  blogID: string,
+  videoURL: string,
+  courseID: string,
 };
 
-export type ModelPostConditionInput = {
+export type ModelLessonConditionInput = {
   title?: ModelStringInput | null,
-  blogID?: ModelIDInput | null,
-  and?: Array< ModelPostConditionInput | null > | null,
-  or?: Array< ModelPostConditionInput | null > | null,
-  not?: ModelPostConditionInput | null,
+  videoURL?: ModelStringInput | null,
+  courseID?: ModelIDInput | null,
+  and?: Array< ModelLessonConditionInput | null > | null,
+  or?: Array< ModelLessonConditionInput | null > | null,
+  not?: ModelLessonConditionInput | null,
 };
 
 export type ModelIDInput = {
@@ -135,24 +138,25 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
-export type UpdatePostInput = {
+export type UpdateLessonInput = {
   id: string,
   title?: string | null,
-  blogID?: string | null,
+  videoURL?: string | null,
+  courseID?: string | null,
 };
 
-export type DeletePostInput = {
+export type DeleteLessonInput = {
   id: string,
 };
 
 export type CreateCommentInput = {
   id?: string | null,
-  postID: string,
+  lessonID: string,
   content: string,
 };
 
 export type ModelCommentConditionInput = {
-  postID?: ModelIDInput | null,
+  lessonID?: ModelIDInput | null,
   content?: ModelStringInput | null,
   and?: Array< ModelCommentConditionInput | null > | null,
   or?: Array< ModelCommentConditionInput | null > | null,
@@ -161,7 +165,7 @@ export type ModelCommentConditionInput = {
 
 export type UpdateCommentInput = {
   id: string,
-  postID?: string | null,
+  lessonID?: string | null,
   content?: string | null,
 };
 
@@ -169,55 +173,57 @@ export type DeleteCommentInput = {
   id: string,
 };
 
-export type ModelBlogFilterInput = {
+export type ModelCourseFilterInput = {
   id?: ModelIDInput | null,
   name?: ModelStringInput | null,
-  and?: Array< ModelBlogFilterInput | null > | null,
-  or?: Array< ModelBlogFilterInput | null > | null,
-  not?: ModelBlogFilterInput | null,
+  and?: Array< ModelCourseFilterInput | null > | null,
+  or?: Array< ModelCourseFilterInput | null > | null,
+  not?: ModelCourseFilterInput | null,
 };
 
-export type ModelBlogConnection = {
-  __typename: "ModelBlogConnection",
-  items?:  Array<Blog | null > | null,
+export type ModelCourseConnection = {
+  __typename: "ModelCourseConnection",
+  items?:  Array<Course | null > | null,
   nextToken?: string | null,
 };
 
-export type ModelPostFilterInput = {
+export type ModelLessonFilterInput = {
   id?: ModelIDInput | null,
   title?: ModelStringInput | null,
-  blogID?: ModelIDInput | null,
-  and?: Array< ModelPostFilterInput | null > | null,
-  or?: Array< ModelPostFilterInput | null > | null,
-  not?: ModelPostFilterInput | null,
+  videoURL?: ModelStringInput | null,
+  courseID?: ModelIDInput | null,
+  and?: Array< ModelLessonFilterInput | null > | null,
+  or?: Array< ModelLessonFilterInput | null > | null,
+  not?: ModelLessonFilterInput | null,
 };
 
 export type ModelCommentFilterInput = {
   id?: ModelIDInput | null,
-  postID?: ModelIDInput | null,
+  lessonID?: ModelIDInput | null,
   content?: ModelStringInput | null,
   and?: Array< ModelCommentFilterInput | null > | null,
   or?: Array< ModelCommentFilterInput | null > | null,
   not?: ModelCommentFilterInput | null,
 };
 
-export type CreateBlogMutationVariables = {
-  input: CreateBlogInput,
-  condition?: ModelBlogConditionInput | null,
+export type CreateCourseMutationVariables = {
+  input: CreateCourseInput,
+  condition?: ModelCourseConditionInput | null,
 };
 
-export type CreateBlogMutation = {
-  createBlog?:  {
-    __typename: "Blog",
+export type CreateCourseMutation = {
+  createCourse?:  {
+    __typename: "Course",
     id: string,
     name: string,
-    posts?:  {
-      __typename: "ModelPostConnection",
+    lessons?:  {
+      __typename: "ModelLessonConnection",
       items?:  Array< {
-        __typename: "Post",
+        __typename: "Lesson",
         id: string,
         title: string,
-        blogID: string,
+        videoURL: string,
+        courseID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
@@ -228,23 +234,24 @@ export type CreateBlogMutation = {
   } | null,
 };
 
-export type UpdateBlogMutationVariables = {
-  input: UpdateBlogInput,
-  condition?: ModelBlogConditionInput | null,
+export type UpdateCourseMutationVariables = {
+  input: UpdateCourseInput,
+  condition?: ModelCourseConditionInput | null,
 };
 
-export type UpdateBlogMutation = {
-  updateBlog?:  {
-    __typename: "Blog",
+export type UpdateCourseMutation = {
+  updateCourse?:  {
+    __typename: "Course",
     id: string,
     name: string,
-    posts?:  {
-      __typename: "ModelPostConnection",
+    lessons?:  {
+      __typename: "ModelLessonConnection",
       items?:  Array< {
-        __typename: "Post",
+        __typename: "Lesson",
         id: string,
         title: string,
-        blogID: string,
+        videoURL: string,
+        courseID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
@@ -255,23 +262,24 @@ export type UpdateBlogMutation = {
   } | null,
 };
 
-export type DeleteBlogMutationVariables = {
-  input: DeleteBlogInput,
-  condition?: ModelBlogConditionInput | null,
+export type DeleteCourseMutationVariables = {
+  input: DeleteCourseInput,
+  condition?: ModelCourseConditionInput | null,
 };
 
-export type DeleteBlogMutation = {
-  deleteBlog?:  {
-    __typename: "Blog",
+export type DeleteCourseMutation = {
+  deleteCourse?:  {
+    __typename: "Course",
     id: string,
     name: string,
-    posts?:  {
-      __typename: "ModelPostConnection",
+    lessons?:  {
+      __typename: "ModelLessonConnection",
       items?:  Array< {
-        __typename: "Post",
+        __typename: "Lesson",
         id: string,
         title: string,
-        blogID: string,
+        videoURL: string,
+        courseID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
@@ -282,23 +290,24 @@ export type DeleteBlogMutation = {
   } | null,
 };
 
-export type CreatePostMutationVariables = {
-  input: CreatePostInput,
-  condition?: ModelPostConditionInput | null,
+export type CreateLessonMutationVariables = {
+  input: CreateLessonInput,
+  condition?: ModelLessonConditionInput | null,
 };
 
-export type CreatePostMutation = {
-  createPost?:  {
-    __typename: "Post",
+export type CreateLessonMutation = {
+  createLesson?:  {
+    __typename: "Lesson",
     id: string,
     title: string,
-    blogID: string,
-    blog?:  {
-      __typename: "Blog",
+    videoURL: string,
+    courseID: string,
+    course?:  {
+      __typename: "Course",
       id: string,
       name: string,
-      posts?:  {
-        __typename: "ModelPostConnection",
+      lessons?:  {
+        __typename: "ModelLessonConnection",
         nextToken?: string | null,
       } | null,
       createdAt: string,
@@ -309,7 +318,7 @@ export type CreatePostMutation = {
       items?:  Array< {
         __typename: "Comment",
         id: string,
-        postID: string,
+        lessonID: string,
         content: string,
         createdAt: string,
         updatedAt: string,
@@ -321,23 +330,24 @@ export type CreatePostMutation = {
   } | null,
 };
 
-export type UpdatePostMutationVariables = {
-  input: UpdatePostInput,
-  condition?: ModelPostConditionInput | null,
+export type UpdateLessonMutationVariables = {
+  input: UpdateLessonInput,
+  condition?: ModelLessonConditionInput | null,
 };
 
-export type UpdatePostMutation = {
-  updatePost?:  {
-    __typename: "Post",
+export type UpdateLessonMutation = {
+  updateLesson?:  {
+    __typename: "Lesson",
     id: string,
     title: string,
-    blogID: string,
-    blog?:  {
-      __typename: "Blog",
+    videoURL: string,
+    courseID: string,
+    course?:  {
+      __typename: "Course",
       id: string,
       name: string,
-      posts?:  {
-        __typename: "ModelPostConnection",
+      lessons?:  {
+        __typename: "ModelLessonConnection",
         nextToken?: string | null,
       } | null,
       createdAt: string,
@@ -348,7 +358,7 @@ export type UpdatePostMutation = {
       items?:  Array< {
         __typename: "Comment",
         id: string,
-        postID: string,
+        lessonID: string,
         content: string,
         createdAt: string,
         updatedAt: string,
@@ -360,23 +370,24 @@ export type UpdatePostMutation = {
   } | null,
 };
 
-export type DeletePostMutationVariables = {
-  input: DeletePostInput,
-  condition?: ModelPostConditionInput | null,
+export type DeleteLessonMutationVariables = {
+  input: DeleteLessonInput,
+  condition?: ModelLessonConditionInput | null,
 };
 
-export type DeletePostMutation = {
-  deletePost?:  {
-    __typename: "Post",
+export type DeleteLessonMutation = {
+  deleteLesson?:  {
+    __typename: "Lesson",
     id: string,
     title: string,
-    blogID: string,
-    blog?:  {
-      __typename: "Blog",
+    videoURL: string,
+    courseID: string,
+    course?:  {
+      __typename: "Course",
       id: string,
       name: string,
-      posts?:  {
-        __typename: "ModelPostConnection",
+      lessons?:  {
+        __typename: "ModelLessonConnection",
         nextToken?: string | null,
       } | null,
       createdAt: string,
@@ -387,7 +398,7 @@ export type DeletePostMutation = {
       items?:  Array< {
         __typename: "Comment",
         id: string,
-        postID: string,
+        lessonID: string,
         content: string,
         createdAt: string,
         updatedAt: string,
@@ -408,14 +419,15 @@ export type CreateCommentMutation = {
   createComment?:  {
     __typename: "Comment",
     id: string,
-    postID: string,
-    post?:  {
-      __typename: "Post",
+    lessonID: string,
+    lesson?:  {
+      __typename: "Lesson",
       id: string,
       title: string,
-      blogID: string,
-      blog?:  {
-        __typename: "Blog",
+      videoURL: string,
+      courseID: string,
+      course?:  {
+        __typename: "Course",
         id: string,
         name: string,
         createdAt: string,
@@ -443,14 +455,15 @@ export type UpdateCommentMutation = {
   updateComment?:  {
     __typename: "Comment",
     id: string,
-    postID: string,
-    post?:  {
-      __typename: "Post",
+    lessonID: string,
+    lesson?:  {
+      __typename: "Lesson",
       id: string,
       title: string,
-      blogID: string,
-      blog?:  {
-        __typename: "Blog",
+      videoURL: string,
+      courseID: string,
+      course?:  {
+        __typename: "Course",
         id: string,
         name: string,
         createdAt: string,
@@ -478,14 +491,15 @@ export type DeleteCommentMutation = {
   deleteComment?:  {
     __typename: "Comment",
     id: string,
-    postID: string,
-    post?:  {
-      __typename: "Post",
+    lessonID: string,
+    lesson?:  {
+      __typename: "Lesson",
       id: string,
       title: string,
-      blogID: string,
-      blog?:  {
-        __typename: "Blog",
+      videoURL: string,
+      courseID: string,
+      course?:  {
+        __typename: "Course",
         id: string,
         name: string,
         createdAt: string,
@@ -504,22 +518,23 @@ export type DeleteCommentMutation = {
   } | null,
 };
 
-export type GetBlogQueryVariables = {
+export type GetCourseQueryVariables = {
   id: string,
 };
 
-export type GetBlogQuery = {
-  getBlog?:  {
-    __typename: "Blog",
+export type GetCourseQuery = {
+  getCourse?:  {
+    __typename: "Course",
     id: string,
     name: string,
-    posts?:  {
-      __typename: "ModelPostConnection",
+    lessons?:  {
+      __typename: "ModelLessonConnection",
       items?:  Array< {
-        __typename: "Post",
+        __typename: "Lesson",
         id: string,
         title: string,
-        blogID: string,
+        videoURL: string,
+        courseID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
@@ -530,21 +545,21 @@ export type GetBlogQuery = {
   } | null,
 };
 
-export type ListBlogsQueryVariables = {
-  filter?: ModelBlogFilterInput | null,
+export type ListCoursesQueryVariables = {
+  filter?: ModelCourseFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListBlogsQuery = {
-  listBlogs?:  {
-    __typename: "ModelBlogConnection",
+export type ListCoursesQuery = {
+  listCourses?:  {
+    __typename: "ModelCourseConnection",
     items?:  Array< {
-      __typename: "Blog",
+      __typename: "Course",
       id: string,
       name: string,
-      posts?:  {
-        __typename: "ModelPostConnection",
+      lessons?:  {
+        __typename: "ModelLessonConnection",
         nextToken?: string | null,
       } | null,
       createdAt: string,
@@ -554,22 +569,23 @@ export type ListBlogsQuery = {
   } | null,
 };
 
-export type GetPostQueryVariables = {
+export type GetLessonQueryVariables = {
   id: string,
 };
 
-export type GetPostQuery = {
-  getPost?:  {
-    __typename: "Post",
+export type GetLessonQuery = {
+  getLesson?:  {
+    __typename: "Lesson",
     id: string,
     title: string,
-    blogID: string,
-    blog?:  {
-      __typename: "Blog",
+    videoURL: string,
+    courseID: string,
+    course?:  {
+      __typename: "Course",
       id: string,
       name: string,
-      posts?:  {
-        __typename: "ModelPostConnection",
+      lessons?:  {
+        __typename: "ModelLessonConnection",
         nextToken?: string | null,
       } | null,
       createdAt: string,
@@ -580,7 +596,7 @@ export type GetPostQuery = {
       items?:  Array< {
         __typename: "Comment",
         id: string,
-        postID: string,
+        lessonID: string,
         content: string,
         createdAt: string,
         updatedAt: string,
@@ -592,22 +608,23 @@ export type GetPostQuery = {
   } | null,
 };
 
-export type ListPostsQueryVariables = {
-  filter?: ModelPostFilterInput | null,
+export type ListLessonsQueryVariables = {
+  filter?: ModelLessonFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListPostsQuery = {
-  listPosts?:  {
-    __typename: "ModelPostConnection",
+export type ListLessonsQuery = {
+  listLessons?:  {
+    __typename: "ModelLessonConnection",
     items?:  Array< {
-      __typename: "Post",
+      __typename: "Lesson",
       id: string,
       title: string,
-      blogID: string,
-      blog?:  {
-        __typename: "Blog",
+      videoURL: string,
+      courseID: string,
+      course?:  {
+        __typename: "Course",
         id: string,
         name: string,
         createdAt: string,
@@ -632,14 +649,15 @@ export type GetCommentQuery = {
   getComment?:  {
     __typename: "Comment",
     id: string,
-    postID: string,
-    post?:  {
-      __typename: "Post",
+    lessonID: string,
+    lesson?:  {
+      __typename: "Lesson",
       id: string,
       title: string,
-      blogID: string,
-      blog?:  {
-        __typename: "Blog",
+      videoURL: string,
+      courseID: string,
+      course?:  {
+        __typename: "Course",
         id: string,
         name: string,
         createdAt: string,
@@ -670,12 +688,13 @@ export type ListCommentsQuery = {
     items?:  Array< {
       __typename: "Comment",
       id: string,
-      postID: string,
-      post?:  {
-        __typename: "Post",
+      lessonID: string,
+      lesson?:  {
+        __typename: "Lesson",
         id: string,
         title: string,
-        blogID: string,
+        videoURL: string,
+        courseID: string,
         createdAt: string,
         updatedAt: string,
       } | null,
@@ -687,18 +706,19 @@ export type ListCommentsQuery = {
   } | null,
 };
 
-export type OnCreateBlogSubscription = {
-  onCreateBlog?:  {
-    __typename: "Blog",
+export type OnCreateCourseSubscription = {
+  onCreateCourse?:  {
+    __typename: "Course",
     id: string,
     name: string,
-    posts?:  {
-      __typename: "ModelPostConnection",
+    lessons?:  {
+      __typename: "ModelLessonConnection",
       items?:  Array< {
-        __typename: "Post",
+        __typename: "Lesson",
         id: string,
         title: string,
-        blogID: string,
+        videoURL: string,
+        courseID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
@@ -709,18 +729,19 @@ export type OnCreateBlogSubscription = {
   } | null,
 };
 
-export type OnUpdateBlogSubscription = {
-  onUpdateBlog?:  {
-    __typename: "Blog",
+export type OnUpdateCourseSubscription = {
+  onUpdateCourse?:  {
+    __typename: "Course",
     id: string,
     name: string,
-    posts?:  {
-      __typename: "ModelPostConnection",
+    lessons?:  {
+      __typename: "ModelLessonConnection",
       items?:  Array< {
-        __typename: "Post",
+        __typename: "Lesson",
         id: string,
         title: string,
-        blogID: string,
+        videoURL: string,
+        courseID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
@@ -731,18 +752,19 @@ export type OnUpdateBlogSubscription = {
   } | null,
 };
 
-export type OnDeleteBlogSubscription = {
-  onDeleteBlog?:  {
-    __typename: "Blog",
+export type OnDeleteCourseSubscription = {
+  onDeleteCourse?:  {
+    __typename: "Course",
     id: string,
     name: string,
-    posts?:  {
-      __typename: "ModelPostConnection",
+    lessons?:  {
+      __typename: "ModelLessonConnection",
       items?:  Array< {
-        __typename: "Post",
+        __typename: "Lesson",
         id: string,
         title: string,
-        blogID: string,
+        videoURL: string,
+        courseID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
@@ -753,18 +775,19 @@ export type OnDeleteBlogSubscription = {
   } | null,
 };
 
-export type OnCreatePostSubscription = {
-  onCreatePost?:  {
-    __typename: "Post",
+export type OnCreateLessonSubscription = {
+  onCreateLesson?:  {
+    __typename: "Lesson",
     id: string,
     title: string,
-    blogID: string,
-    blog?:  {
-      __typename: "Blog",
+    videoURL: string,
+    courseID: string,
+    course?:  {
+      __typename: "Course",
       id: string,
       name: string,
-      posts?:  {
-        __typename: "ModelPostConnection",
+      lessons?:  {
+        __typename: "ModelLessonConnection",
         nextToken?: string | null,
       } | null,
       createdAt: string,
@@ -775,7 +798,7 @@ export type OnCreatePostSubscription = {
       items?:  Array< {
         __typename: "Comment",
         id: string,
-        postID: string,
+        lessonID: string,
         content: string,
         createdAt: string,
         updatedAt: string,
@@ -787,18 +810,19 @@ export type OnCreatePostSubscription = {
   } | null,
 };
 
-export type OnUpdatePostSubscription = {
-  onUpdatePost?:  {
-    __typename: "Post",
+export type OnUpdateLessonSubscription = {
+  onUpdateLesson?:  {
+    __typename: "Lesson",
     id: string,
     title: string,
-    blogID: string,
-    blog?:  {
-      __typename: "Blog",
+    videoURL: string,
+    courseID: string,
+    course?:  {
+      __typename: "Course",
       id: string,
       name: string,
-      posts?:  {
-        __typename: "ModelPostConnection",
+      lessons?:  {
+        __typename: "ModelLessonConnection",
         nextToken?: string | null,
       } | null,
       createdAt: string,
@@ -809,7 +833,7 @@ export type OnUpdatePostSubscription = {
       items?:  Array< {
         __typename: "Comment",
         id: string,
-        postID: string,
+        lessonID: string,
         content: string,
         createdAt: string,
         updatedAt: string,
@@ -821,18 +845,19 @@ export type OnUpdatePostSubscription = {
   } | null,
 };
 
-export type OnDeletePostSubscription = {
-  onDeletePost?:  {
-    __typename: "Post",
+export type OnDeleteLessonSubscription = {
+  onDeleteLesson?:  {
+    __typename: "Lesson",
     id: string,
     title: string,
-    blogID: string,
-    blog?:  {
-      __typename: "Blog",
+    videoURL: string,
+    courseID: string,
+    course?:  {
+      __typename: "Course",
       id: string,
       name: string,
-      posts?:  {
-        __typename: "ModelPostConnection",
+      lessons?:  {
+        __typename: "ModelLessonConnection",
         nextToken?: string | null,
       } | null,
       createdAt: string,
@@ -843,7 +868,7 @@ export type OnDeletePostSubscription = {
       items?:  Array< {
         __typename: "Comment",
         id: string,
-        postID: string,
+        lessonID: string,
         content: string,
         createdAt: string,
         updatedAt: string,
@@ -859,14 +884,15 @@ export type OnCreateCommentSubscription = {
   onCreateComment?:  {
     __typename: "Comment",
     id: string,
-    postID: string,
-    post?:  {
-      __typename: "Post",
+    lessonID: string,
+    lesson?:  {
+      __typename: "Lesson",
       id: string,
       title: string,
-      blogID: string,
-      blog?:  {
-        __typename: "Blog",
+      videoURL: string,
+      courseID: string,
+      course?:  {
+        __typename: "Course",
         id: string,
         name: string,
         createdAt: string,
@@ -889,14 +915,15 @@ export type OnUpdateCommentSubscription = {
   onUpdateComment?:  {
     __typename: "Comment",
     id: string,
-    postID: string,
-    post?:  {
-      __typename: "Post",
+    lessonID: string,
+    lesson?:  {
+      __typename: "Lesson",
       id: string,
       title: string,
-      blogID: string,
-      blog?:  {
-        __typename: "Blog",
+      videoURL: string,
+      courseID: string,
+      course?:  {
+        __typename: "Course",
         id: string,
         name: string,
         createdAt: string,
@@ -919,14 +946,15 @@ export type OnDeleteCommentSubscription = {
   onDeleteComment?:  {
     __typename: "Comment",
     id: string,
-    postID: string,
-    post?:  {
-      __typename: "Post",
+    lessonID: string,
+    lesson?:  {
+      __typename: "Lesson",
       id: string,
       title: string,
-      blogID: string,
-      blog?:  {
-        __typename: "Blog",
+      videoURL: string,
+      courseID: string,
+      course?:  {
+        __typename: "Course",
         id: string,
         name: string,
         createdAt: string,

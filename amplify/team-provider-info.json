@@ -10,6 +10,18 @@
       "StackName": "amplify-educationplus-dev-165744",
       "StackId": "arn:aws:cloudformation:us-east-2:894423412628:stack/amplify-educationplus-dev-165744/c58d8c30-3ce8-11ec-ad8d-0a7b0a75620c",
       "AmplifyAppId": "d11kllbk8bqbjg"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d11kllbk8bqbjg",
+          "type": "cicd"
+        }
+      },
+      "auth": {
+        "educationplusd6a3defe": {},
+        "educationplus54aee3dd": {}
+      }
     }
   }
 }

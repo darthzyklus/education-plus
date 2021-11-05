@@ -2,16 +2,17 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateBlog = /* GraphQL */ `
-  subscription OnCreateBlog {
-    onCreateBlog {
+export const onCreateCourse = /* GraphQL */ `
+  subscription OnCreateCourse {
+    onCreateCourse {
       id
       name
-      posts {
+      lessons {
         items {
           id
           title
-          blogID
+          videoURL
+          courseID
           createdAt
           updatedAt
         }
@@ -22,16 +23,17 @@ export const onCreateBlog = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateBlog = /* GraphQL */ `
-  subscription OnUpdateBlog {
-    onUpdateBlog {
+export const onUpdateCourse = /* GraphQL */ `
+  subscription OnUpdateCourse {
+    onUpdateCourse {
       id
       name
-      posts {
+      lessons {
         items {
           id
           title
-          blogID
+          videoURL
+          courseID
           createdAt
           updatedAt
         }
@@ -42,16 +44,17 @@ export const onUpdateBlog = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteBlog = /* GraphQL */ `
-  subscription OnDeleteBlog {
-    onDeleteBlog {
+export const onDeleteCourse = /* GraphQL */ `
+  subscription OnDeleteCourse {
+    onDeleteCourse {
       id
       name
-      posts {
+      lessons {
         items {
           id
           title
-          blogID
+          videoURL
+          courseID
           createdAt
           updatedAt
         }
@@ -62,16 +65,17 @@ export const onDeleteBlog = /* GraphQL */ `
     }
   }
 `;
-export const onCreatePost = /* GraphQL */ `
-  subscription OnCreatePost {
-    onCreatePost {
+export const onCreateLesson = /* GraphQL */ `
+  subscription OnCreateLesson {
+    onCreateLesson {
       id
       title
-      blogID
-      blog {
+      videoURL
+      courseID
+      course {
         id
         name
-        posts {
+        lessons {
           nextToken
         }
         createdAt
@@ -80,7 +84,7 @@ export const onCreatePost = /* GraphQL */ `
       comments {
         items {
           id
-          postID
+          lessonID
           content
           createdAt
           updatedAt
@@ -92,16 +96,17 @@ export const onCreatePost = /* GraphQL */ `
     }
   }
 `;
-export const onUpdatePost = /* GraphQL */ `
-  subscription OnUpdatePost {
-    onUpdatePost {
+export const onUpdateLesson = /* GraphQL */ `
+  subscription OnUpdateLesson {
+    onUpdateLesson {
       id
       title
-      blogID
-      blog {
+      videoURL
+      courseID
+      course {
         id
         name
-        posts {
+        lessons {
           nextToken
         }
         createdAt
@@ -110,7 +115,7 @@ export const onUpdatePost = /* GraphQL */ `
       comments {
         items {
           id
-          postID
+          lessonID
           content
           createdAt
           updatedAt
@@ -122,16 +127,17 @@ export const onUpdatePost = /* GraphQL */ `
     }
   }
 `;
-export const onDeletePost = /* GraphQL */ `
-  subscription OnDeletePost {
-    onDeletePost {
+export const onDeleteLesson = /* GraphQL */ `
+  subscription OnDeleteLesson {
+    onDeleteLesson {
       id
       title
-      blogID
-      blog {
+      videoURL
+      courseID
+      course {
         id
         name
-        posts {
+        lessons {
           nextToken
         }
         createdAt
@@ -140,7 +146,7 @@ export const onDeletePost = /* GraphQL */ `
       comments {
         items {
           id
-          postID
+          lessonID
           content
           createdAt
           updatedAt
@@ -156,12 +162,13 @@ export const onCreateComment = /* GraphQL */ `
   subscription OnCreateComment {
     onCreateComment {
       id
-      postID
-      post {
+      lessonID
+      lesson {
         id
         title
-        blogID
-        blog {
+        videoURL
+        courseID
+        course {
           id
           name
           createdAt
@@ -183,12 +190,13 @@ export const onUpdateComment = /* GraphQL */ `
   subscription OnUpdateComment {
     onUpdateComment {
       id
-      postID
-      post {
+      lessonID
+      lesson {
         id
         title
-        blogID
-        blog {
+        videoURL
+        courseID
+        course {
           id
           name
           createdAt
@@ -210,12 +218,13 @@ export const onDeleteComment = /* GraphQL */ `
   subscription OnDeleteComment {
     onDeleteComment {
       id
-      postID
-      post {
+      lessonID
+      lesson {
         id
         title
-        blogID
-        blog {
+        videoURL
+        courseID
+        course {
           id
           name
           createdAt
