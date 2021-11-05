@@ -16,6 +16,8 @@ const Layout: FC = ({ children }) => {
         flexDirection="column"
         justifyContent="space-between"
         minHeight="100vh"
+        bg="gray.800"
+        color="gray.50"
       >
         <Nav />
         <Flex
