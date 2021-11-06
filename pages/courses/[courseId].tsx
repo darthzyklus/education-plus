@@ -20,6 +20,7 @@ export const getServerSideProps: GetServerSideProps = async ({
     props: {
       course: response.data.getCourse,
     },
+    notFound: !response.data.getCourse,
   };
 };
 

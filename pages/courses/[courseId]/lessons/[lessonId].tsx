@@ -23,14 +23,20 @@ export const getServerSideProps: GetServerSideProps = async ({
   });
 
   const lesson = response.data.getLesson;
-  const { courseID } = lesson;
+
+  if (!lesson) {
+    return {
+      notFound: true,
+    };
+  }
 
   response = await SSR.API.graphql({
     query: getCourse,
-    variables: { id: courseID },
+    variables: { id: lesson.courseID },
   });
 
   const course = response.data.getCourse;
+
   return {
     props: { lesson, course },
   };
