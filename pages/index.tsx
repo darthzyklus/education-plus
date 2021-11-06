@@ -1,15 +1,8 @@
-import { Amplify, withSSRContext } from "aws-amplify";
+import { withSSRContext } from "aws-amplify";
 import type { NextPage, GetServerSideProps } from "next";
-
 import { Course } from "../types";
-
 import { listCourses } from "../src/graphql/queries";
-import awsExports from "../src/aws-exports";
-
-import Layout from "../components/Layout";
 import Courses from "../components/Courses";
-
-Amplify.configure({ ...awsExports, ssr: true });
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const SSR = withSSRContext({ req });
@@ -22,16 +15,12 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   };
 };
 
-type HomeProps = {
+type HomePageProps = {
   courses: Course[];
 };
 
-const Home: NextPage<HomeProps> = ({ courses = [] }) => {
-  return (
-    <Layout>
-      <Courses courses={courses} />
-    </Layout>
-  );
+const HomePage: NextPage<HomePageProps> = ({ courses = [] }) => {
+  return <Courses courses={courses} />;
 };
 
-export default Home;
+export default HomePage;

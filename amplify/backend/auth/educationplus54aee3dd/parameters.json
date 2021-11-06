@@ -1,6 +1,6 @@
 {
     "identityPoolName": "educationplus54aee3dd_identitypool_54aee3dd",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "educat54aee3dd",
     "userPoolName": "educationplus54aee3dd_userpool_54aee3dd",
     "autoVerifiedAttributes": [

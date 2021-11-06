@@ -25,11 +25,11 @@ const Layout: FC = ({ children }) => {
           flexDir="column"
           justifyContent="flex-start"
           flexGrow={1}
-          p="5"
         >
           {children}
         </Flex>
         <Flex
+          mt="4"
           as="footer"
           justifyContent="center"
           p="16px"

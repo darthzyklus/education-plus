@@ -1,5 +1,6 @@
 import { FC } from "react";
-import { Box, Text, List, ListItem, Flex } from "@chakra-ui/react";
+import NextLink from "next/link";
+import { Box, Text, List, ListItem, Flex, Link } from "@chakra-ui/react";
 
 import { Course } from "../types";
 
@@ -19,7 +20,7 @@ const Courses: FC<CoursesProps> = ({ courses }) => {
   }
 
   return (
-    <div>
+    <Box p="5">
       <Text as="h2" fontSize="xl">
         Courses
       </Text>
@@ -37,28 +38,32 @@ const Courses: FC<CoursesProps> = ({ courses }) => {
             _hover={{ color: "yellow.300", cursor: "pointer" }}
             m="5"
           >
-            <Flex
-              bg="black"
-              minH="200px"
-              w="100%"
-              justifyContent="center"
-              alignItems="center"
-              fontSize="3xl"
-              wordBreak="break-word"
-              _hover={{
-                color: "yellow.300",
-                cursor: "pointer",
-              }}
-            >
-              {course.name}
-            </Flex>
-            <Text as="h3" textAlign="center" p="4">
-              {course.name}
-            </Text>
+            <NextLink href={`/courses/${course.id}`} passHref>
+              <Link _hover={{ textDecoration: "none" }}>
+                <Flex
+                  bg="black"
+                  minH="200px"
+                  w="100%"
+                  justifyContent="center"
+                  alignItems="center"
+                  fontSize="3xl"
+                  wordBreak="break-word"
+                  _hover={{
+                    color: "yellow.300",
+                    cursor: "pointer",
+                  }}
+                >
+                  {course.name}
+                </Flex>
+                <Text as="h3" textAlign="center" p="4">
+                  {course.name}
+                </Text>
+              </Link>
+            </NextLink>
           </ListItem>
         ))}
       </List>
-    </div>
+    </Box>
   );
 };
 
