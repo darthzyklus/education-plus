@@ -9,6 +9,7 @@ const Nav: FC = () => {
       bg="gray.700"
       minHeight="40px"
       p="16px"
+      boxShadow="0 2px 4px 0 rgba(0,0,0,.5);"
     >
       <Heading as="h1" size="md">
         <Link href="/" _hover={{ color: "yellow.300" }}>

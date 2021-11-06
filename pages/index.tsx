@@ -1,8 +1,8 @@
 import { withSSRContext } from "aws-amplify";
 import type { NextPage, GetServerSideProps } from "next";
-import { Course } from "../types";
-import { listCourses } from "../src/graphql/queries";
-import Courses from "../components/Courses";
+import { Course } from "types";
+import { listCourses } from "src/graphql/queries";
+import Courses from "components/Courses";
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const SSR = withSSRContext({ req });

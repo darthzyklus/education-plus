@@ -2,8 +2,9 @@ import NextLink from "next/link";
 import { withSSRContext } from "aws-amplify";
 import type { NextPage, GetServerSideProps } from "next";
 import { Box, Flex, Heading, List, ListItem, Link } from "@chakra-ui/react";
-import { Course, Lesson } from "../../types";
-import { getCourse } from "../../src/graphql/queries";
+import { Course } from "types";
+import { getCourse } from "src/graphql/queries";
+import { sortByDate } from "src/utils";
 
 export const getServerSideProps: GetServerSideProps = async ({
   req,
@@ -12,7 +13,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   const SSR = withSSRContext({ req });
   const response = await SSR.API.graphql({
     query: getCourse,
-    variables: { id: query.id },
+    variables: { id: query.courseId },
   });
 
   return {
@@ -24,16 +25,6 @@ export const getServerSideProps: GetServerSideProps = async ({
 
 type CoursePageProps = {
   course: Course;
-};
-
-const sortByDate = (a: Lesson, b: Lesson) => {
-  const d1 = new Date(a.createdAt);
-  const d2 = new Date(b.createdAt);
-
-  const t1 = d1.getTime();
-  const t2 = d2.getTime();
-
-  return t1 - t2;
 };
 
 const CoursePage: NextPage<CoursePageProps> = ({ course }) => {

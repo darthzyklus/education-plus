@@ -29,12 +29,13 @@ const Layout: FC = ({ children }) => {
           {children}
         </Flex>
         <Flex
-          mt="4"
           as="footer"
           justifyContent="center"
           p="16px"
           color="gray.100"
           bg="gray.900"
+          borderColor="gray.700"
+          borderTopWidth="2px"
         >
           <Link
             href="https://twitter.com/darthzyklus"
